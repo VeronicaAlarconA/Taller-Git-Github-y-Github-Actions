@@ -28,10 +28,7 @@ def cargar_estudiantes_desde_csv(ruta_csv):
     return estudiantes_validos
 
 def mostrar_estudiantes_en_tabla(estudiantes):
-    """
-    Ordena la lista de estudiantes alfabéticamente por nombre
-    y los muestra en una tabla alineada.
-    """
+
     estudiantes_ordenados = sorted(estudiantes, key=lambda est: est["nombre"])
 
     print("\nListado de Estudiantes".center(40, "-"))
@@ -42,4 +39,15 @@ def mostrar_estudiantes_en_tabla(estudiantes):
         print(f"{est['nombre']:<25} {est['nota']:>5.1f}")
 
     print("-" * 40)
+
+def calcular_promedio_general(estudiantes):
+    
+    if not estudiantes:
+        print("No hay estudiantes para calcular el promedio.")
+        return
+
+    suma_notas = sum(est["nota"] for est in estudiantes)
+    promedio = suma_notas / len(estudiantes)
+
+    print(f"\nPromedio general de notas: {promedio:.2f}")
 
