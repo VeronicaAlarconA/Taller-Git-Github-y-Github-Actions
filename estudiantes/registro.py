@@ -26,3 +26,20 @@ def cargar_estudiantes_desde_csv(ruta_csv):
         print(f"Archivo no encontrado: {ruta_csv}")
 
     return estudiantes_validos
+
+def mostrar_estudiantes_en_tabla(estudiantes):
+    """
+    Ordena la lista de estudiantes alfabéticamente por nombre
+    y los muestra en una tabla alineada.
+    """
+    estudiantes_ordenados = sorted(estudiantes, key=lambda est: est["nombre"])
+
+    print("\nListado de Estudiantes".center(40, "-"))
+    print(f"{'Nombre':<25} {'Nota':>5}")
+    print("-" * 40)
+
+    for est in estudiantes_ordenados:
+        print(f"{est['nombre']:<25} {est['nota']:>5.1f}")
+
+    print("-" * 40)
+
